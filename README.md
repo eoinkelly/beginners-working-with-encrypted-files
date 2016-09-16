@@ -2,6 +2,18 @@
 
 <!-- toc -->
 
+- [Introduction](#introduction)
+- [Overview of how encryption works](#overview-of-how-encryption-works)
+- [Install GPG tools](#install-gpg-tools)
+- [How to send your public key to somebody](#how-to-send-your-public-key-to-somebody)
+- [What to do when you receive a public key](#what-to-do-when-you-receive-a-public-key)
+- [Working with files](#working-with-files)
+  * [How to encrypt a file](#how-to-encrypt-a-file)
+  * [How to decrypt an encrypted file](#how-to-decrypt-an-encrypted-file)
+  * [Extra Credit: Encrypt/decrypt text without having to create a file](#extra-credit-encryptdecrypt-text-without-having-to-create-a-file)
+
+<!-- tocstop -->
+
 ## Introduction
 
 ## Overview of how encryption works
