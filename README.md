@@ -1,3 +1,5 @@
+# This is still work in progress - parts may not make sense yet
+
 # Beginners guide for sending/receiving encrypted files on macOS
 
 <!-- toc -->
