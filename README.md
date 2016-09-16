@@ -1,6 +1,6 @@
 # This is still work in progress - parts may not make sense yet
 
-# Beginners guide for sending/receiving encrypted files on macOS
+# Sending & receiving encrypted files on macOS - a beginners guide
 
 <!-- toc -->
 
@@ -18,7 +18,11 @@
 
 ## Introduction
 
+This guide is for humans who want to exchange encrypted files. This is a guide for beginners. We cover just enough for a reader to be able to confidently send and receive and encrypted files.
+
 ## Overview of how encryption works
+
+TODO
 
 ## Install GPG tools
 
@@ -28,7 +32,7 @@ Advanced users may enjoy knowing that _GPG Tools_ is a wrapper around [GnuPG](ht
 
 The installation of _GPG Tools_ is similar to many other macOS apps. Follow the prompts until we get to the screen asking you to "Generate a new key pair".
 
-If you are confident installing macOS software you can skip straight ahead to the "Generate a key pair" screen. Otherwise you can see here a preview of you are likely to see during installation. Don't worry if what you see does not match these exactly (_GPG Tools_ may change their installer over time) - the important details will remain the same.
+If you are confident installing macOS software you can skip straight ahead to the "Generate a key pair" screen. Otherwise you can see below a preview of what you are likely to see during installation. Don't worry if what you see does not match these exactly (_GPG Tools_ may change their installer over time) - the important details will remain the same.
 
 ![GPG Suite dmg](./images/Screenshot 2016-09-16 13.24.44.png)
 ![GPG Installer Page 1](./images/Screenshot 2016-09-16 13.25.52.png)
@@ -37,14 +41,28 @@ If you are confident installing macOS software you can skip straight ahead to th
 
 The "Generate a new key pair" screen is important for us to understand. We are going to pause here to ensure we understand what is going on in this screen.
 
+_GPG Tools_ will probably auto-fill a name and email address for you. This name and email address will be the identity which is part of your key pair. You should use a real email address.
+
+Leave the "Upload public key" unticked.
+
+Uploading your public key to a keyserver can help others find it provided they are able to use encryption software such as GPG tools but it is completely optional.
+
+Before you upload a key to a keyserver you should generate a thing called a "Certificate revocation" which will allow you to prove that the key is yours should you ever want to delete it. This is a somewhat advanced topic so to keep things simple we are not going to deal with keyservers in this guide. Once you become comfortable with the basics of sending and receiving encrypted messages you may wish to explore using a keyserver on your own - you can upload your key to a keyserver at any time via the _GPG Keychain_ interface.
+
+Choose a good password which you will remember. _GPG tools_ will complain if your password is too simple. You will be asked for this password **every** time you encrypt or decrypt a file so it is important.
+
 <!-- ![Generate new key pair 1](./images/Screenshot 2016-09-16 13.27.25.png) -->
-![Generate new key pair detail](./images/Screenshot 2016-09-16 13.27.28.png)
+<!-- ![Generate new key pair detail](./images/Screenshot 2016-09-16 13.27.28.png) -->
 ![Generate new key pair detail and password filled in](./images/Screenshot 2016-09-16 13.28.14.png)
+
+While _GPG Tools_ is generating the key it may ask you to move your mouse around. This seems pretty weird at first but for technical reasons we won't go into just now _GPG Tools_ needs some random data to make your key pair. On the upside you get to wiggle your mouse like crazy for a good cause.
+
 ![GPG Tools generating key](./images/Screenshot 2016-09-16 13.28.31.png)
-![Generate new key pair with advanced options visible](./images/Screenshot 2016-09-16 13.37.04.png)
+<!-- ![Generate new key pair with advanced options visible](./images/Screenshot 2016-09-16 13.37.04.png) -->
+
+Once the key has been created you will see it in your list of keys. When you have both the public and private part of a particular key _GPG Tools_ shows the key in **bold** and shows **sec/pub** in the _Type_ column. Private keys are sometimes also called _secret keys_ and this is the terminology that _GPG Tools is referencing with the "sec" phrase.
+
 ![GPG Tools - main window with generated key](./images/Screenshot 2016-09-16 13.28.42.png)
-
-
 
 
 ## How to send your public key to somebody
@@ -90,12 +108,20 @@ Check out our [Extra credit: encrypting/decrypting pieces of text]() section at 
 ![Encrypt file 1](./images/Screenshot 2016-09-16 13.47.29.png)
 ![Encrypt file 2](./images/Screenshot 2016-09-16 13.48.20.png)
 ![Encrypt file 3](./images/Screenshot 2016-09-16 13.48.44.png)
+
+Once the encryption is complete (which should be very quick unless the file is very large) you will see this chipper little dialog box:
+
 ![Encrypt file 4](./images/Screenshot 2016-09-16 13.48.54.png)
+
+Now the directory should contain both the original and encrypted versions of the same file e.g.
+
 ![Encrypt file 5](./images/Screenshot 2016-09-16 13.49.11.png)
 
 ### How to decrypt an encrypted file
 
-If the file is of the form `stuff.txt.gpg` just double-click it.
+Hopefully the file is has a name which ends in `.gpg` e.g. `stuff.txt.gpg` If it does then you can just double-click it to make a decrypted copy in the same directory. You will be prompted for your secret key password (which unlocks your secret key which in turn decrypts the file).
+
+If the filename does not end in `.gpg` and you are confident that it contains encrypted data then just rename it to end in `.gpg` e.g. rename `secret.jpg` to `secret.jpg.gpg` and double-click as before.
 
 ![Decrypt file 1](./images/Screenshot 2016-09-16 13.57.54.png)
 ![Decrypt file 2](./images/Screenshot 2016-09-16 13.58.09.png)
@@ -103,6 +129,6 @@ If the file is of the form `stuff.txt.gpg` just double-click it.
 
 ### Extra Credit: Encrypt/decrypt text without having to create a file
 
-
+TODO
 
 
