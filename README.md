@@ -20,25 +20,52 @@
 
 ## Install GPG tools
 
-then all your data is in ~/.gnupg
-it also installs the command line tools
+Our first step to being able to confidently work with encrypted files is to download _GPG Tools_ from <https://gpgtools.org/>. _GPG Tools_ is a collection of tools that will integrate with macOS and let us encrypt and decrypt files.
+
+Advanced users may enjoy knowing that _GPG Tools_ is a wrapper around [GnuPG](https://www.gnupg.org/). _GPG Tools_ installs _GnuPG_ (version `gpg (GnuPG/MacGPG2) 2.0.30` as of this writing) and it keeps your keys etc. in `$HOME/.gnupg` just as _GnuPG_ would. Less advanced users can sleep soundly knowing that they don't need to know any of that.
+
+The installation of _GPG Tools_ is similar to many other macOS apps. Follow the prompts until we get to the screen asking you to "Generate a new key pair".
+
+If you are confident installing macOS software you can skip straight ahead to the "Generate a key pair" screen. Otherwise you can see here a preview of you are likely to see during installation. Don't worry if what you see does not match these exactly (_GPG Tools_ may change their installer over time) - the important details will remain the same.
 
 ![GPG Suite dmg](./images/Screenshot 2016-09-16 13.24.44.png)
 ![GPG Installer Page 1](./images/Screenshot 2016-09-16 13.25.52.png)
 ![GPG Installer Page 2](./images/Screenshot 2016-09-16 13.26.00.png)
-![Mac Password Prompt](./images/Screenshot 2016-09-16 13.26.15.png)
 ![GPG Installer Page 3](./images/Screenshot 2016-09-16 13.26.26.png)
-![Generate new key pair 1](./images/Screenshot 2016-09-16 13.27.25.png)
+
+The "Generate a new key pair" screen is important for us to understand. We are going to pause here to ensure we understand what is going on in this screen.
+
+<!-- ![Generate new key pair 1](./images/Screenshot 2016-09-16 13.27.25.png) -->
 ![Generate new key pair detail](./images/Screenshot 2016-09-16 13.27.28.png)
 ![Generate new key pair detail and password filled in](./images/Screenshot 2016-09-16 13.28.14.png)
 ![GPG Tools generating key](./images/Screenshot 2016-09-16 13.28.31.png)
-![GPG Tools - main window with generated key](./images/Screenshot 2016-09-16 13.28.42.png)
 ![Generate new key pair with advanced options visible](./images/Screenshot 2016-09-16 13.37.04.png)
-![Desktop with text file to encrypt](./images/Screenshot 2016-09-16 13.47.49.png)
+![GPG Tools - main window with generated key](./images/Screenshot 2016-09-16 13.28.42.png)
+
+
+
 
 ## How to send your public key to somebody
 
+If you want to email your public key to somebody there is a very fast way
+
+1. Right-click on your keypair in the "GPG Keychain" window
+1. Choose "Mail public key"
+1. Your email software should open with a new email filled in with your public key as an attachment
+
+If you want to save your public key as a file on your hard disks then
+
+1. Right-click on your keypair in the "GPG Keychain" window
+1. Choose export
+1. Choose where to save the file
+    * You can name the file anything you want but keep the `.asc` extension - this extension lets other encryption tools know that this file is for them i.e. it makes life easier for whoever you send/receive encrypted data with.
+1. Make sure you do NOT tick the "Include secret key in exported file" - his is VERY IMPORTANT
+
+![Export key dialog](./images/Screenshot 2016-09-16 14.37.59.png)
+
 ## What to do when you receive a public key
+
+1 Double-click on the file your received - _GPG Tools_ should open and automatically import the key for you.
 
 ## Working with files
 
@@ -57,6 +84,7 @@ Check out our [Extra credit: encrypting/decrypting pieces of text]() section at 
 1. Tick the public keys of everybody you want to send it to
 1. also make sure the "Add to Recipients" is ticked so that it is also encrypted to your key
 
+![Desktop with text file to encrypt](./images/Screenshot 2016-09-16 13.47.49.png)
 ![Encrypt file 1](./images/Screenshot 2016-09-16 13.47.29.png)
 ![Encrypt file 2](./images/Screenshot 2016-09-16 13.48.20.png)
 ![Encrypt file 3](./images/Screenshot 2016-09-16 13.48.44.png)
