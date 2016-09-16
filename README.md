@@ -137,6 +137,14 @@ If the filename does not end in `.gpg` and you are confident that it contains en
 
 ### Extra Credit: Encrypt/decrypt text without having to create a file
 
-TODO
+You don't need this section exchange encrypted messages with other people. We cover a technique which makes encrypting/decrypting small pieces of text quicker than making files.
+
+1. Open an empty TextEdit document
+1. Copy the encrypted text from your email/chat message/whatever into TextEdit
+1. Select the encrypted text and right-click on it, choose **Services** from the menu and then choose **Encrypt selection** or **Decrypt selection** depending on which you wnat to do.
+1. A _GPG Tools_ window will appear asking your to complete the encryption/decryption
+1. The selected text will be **replaced** in the TextEdit document by the encrypted/decrypted version.
+
+This workflow is handy if you regularly exchange small pieces of text e.g. passwords via slack or email.
 
 
